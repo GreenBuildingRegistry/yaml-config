@@ -1,0 +1,17 @@
+[paths]
+source =
+    yamlconf
+
+[run]
+source =
+    yamlconf
+omit =
+    *tox*
+    setup.py
+    *test*
+
+[report]
+;sort = Cover
+sort = Name
+skip_covered = True
+show_missing = True
