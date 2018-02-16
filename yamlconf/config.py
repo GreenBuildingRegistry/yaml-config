@@ -16,8 +16,8 @@ from copy import deepcopy
 import yaml
 
 # Local Imports
-from yamlconf.utils import alphasnake
 from yamlconf.exceptions import ConfigError
+from yamlconf.utils import alphasnake
 
 BASE_PATH = os.getcwd()
 

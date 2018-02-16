@@ -1,10 +1,10 @@
 [paths]
 source =
-    scourgify
+    yamlconf
 
 [run]
 source =
-    scourgify
+    yamlconf
 omit =
     *tox*
     setup.py

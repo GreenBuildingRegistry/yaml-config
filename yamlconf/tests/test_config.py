@@ -13,14 +13,15 @@ import sys
 import unittest
 from copy import deepcopy
 
+# Local Imports
+from yamlconf import Config, ConfigError
+
 PY3 = sys.version_info[0] == 3
 if PY3:
     from unittest import mock
 else:
     import mock
 
-# Local Imports
-from yamlconf import Config, ConfigError
 
 BASE_PATH = os.getcwd()
 TEST_CONFIG_ROOT = os.path.join(BASE_PATH, 'config')

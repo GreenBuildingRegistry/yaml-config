@@ -7,9 +7,7 @@ Documentation
 -------------
 YAML Config provides a Config Class for retrieving configuration variables from YAML based config files.
 
-    Recommended usage is to subclass this class to define default_file
-    and/or default_config_root as necessary, or to override __init__ with
-    relevant defaults.
+    Recommended usage is to subclass this class to define default_file and/or default_config_root as necessary, or to override __init__ with relevant defaults.
 
     .. code-block:: python
     class GBRConfig(Config):
