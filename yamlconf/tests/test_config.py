@@ -285,6 +285,13 @@ class ConfigTests(unittest.TestCase):
         expected += "Checked environment variable: TEST_TEST_FOO_3"
         self.assertEqual(expected, str(exception))
 
+        with self.assertRaises(ConfigError) as conm:
+            conf.get('FOO !3', section='test')
+        exception = conm.exception
+        expected = "Could not find 'FOO !3' in section 'test'. "
+        expected += "Checked environment variable: TEST_TEST_FOO_3"
+        self.assertEqual(expected, str(exception))
+
     @mock.patch('yamlconf.config.yaml.load')
     @mock.patch('yamlconf.config.os.path.exists')
     @mock.patch('yamlconf.config.os.path.dirname')

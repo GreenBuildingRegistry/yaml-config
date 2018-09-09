@@ -58,7 +58,8 @@ def decamel_to_snake(string):
     """Convert to lower case, join camel case with underscore.
     CamelCase -> camel_case. Camel Case -> camel_case.
     """
-    strings = [decamel(word) for word in string.split()]
+    strings = [decamel(word) if not word.isupper() else word.lower()
+               for word in string.split()]
     return "_".join([snake(dstring)for dstring in strings])
 
 
