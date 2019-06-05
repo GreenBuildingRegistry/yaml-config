@@ -1,2 +1,2 @@
-PyYAML==3.12
-typing==3.6.1
+PyYAML>=3.13
+typing>=3.6.1
