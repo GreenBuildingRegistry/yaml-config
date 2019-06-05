@@ -49,9 +49,8 @@ class Config(object):
     default_file = 'config.yaml'
     default_config_root = os.path.join(BASE_PATH, 'config')
 
-    def __init__(self,
-                 config_file=None, config_dir=None,
-                 section=None, env_prefix=None):
+    def __init__(self, config_file=None, config_dir=None, section=None,
+                 env_prefix=None, loader=yaml.SafeLoader):
         if not env_prefix:
             raise ConfigError('env_prefix can not be null.')
         self.env_prefix = env_prefix
@@ -70,13 +69,14 @@ class Config(object):
         self.config_file = self._get_filepath(
             filename=config_file, config_dir=config_dir
         )
+        self.loader = loader
         self.load()
 
     def load(self):
         """(Re)Load config file."""
         try:
             with open(self.config_file) as configfile:
-                self.config = yaml.load(configfile)
+                self.config = yaml.load(configfile, Loader=self.loader)
         except TypeError:
             # no config file (use environment variables)
             pass
