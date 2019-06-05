@@ -92,7 +92,7 @@ class Config(object):
                 ]:
                     if os.path.exists(path):
                         with open(path) as conf:
-                            config = yaml.load(conf)
+                            config = yaml.load(conf, Loader=self.loader)
                             prefix = config.get(
                                 self.config_prefix.lower(), None
                             )
